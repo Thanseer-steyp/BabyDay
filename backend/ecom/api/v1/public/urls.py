@@ -7,7 +7,7 @@ from api.v1.public.views import (
 
 urlpatterns = [
     path("products/", ProductListView.as_view(), name="product-list"),
-    path("products/<int:id>/", ProductDetailView.as_view(), name="product-detail"),
+    path("products/<slug:slug>/", ProductDetailView.as_view(), name="product-detail"),
     
     path("cloth/", ClothListView.as_view(), name="cloth-list"),
     path("cloth/<int:id>/", ClothDetailView.as_view(), name="cloth-detail"),

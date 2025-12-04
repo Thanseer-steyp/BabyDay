@@ -13,9 +13,9 @@ class ProductListView(APIView):
 
 
 class ProductDetailView(APIView):
-    def get(self, request, id):
+    def get(self, request,slug):
         try:
-            product = Product.objects.get(id=id)
+            product = Product.objects.get(slug=slug)
         except Product.DoesNotExist:
             return Response({"error": "Product not found"}, status=status.HTTP_404_NOT_FOUND)
 
@@ -34,7 +34,7 @@ class ClothListView(APIView):
 class ClothDetailView(APIView):
     def get(self, request, id):
         try:
-            cloth = Cloth.objects.get(id=id)
+            cloth = Cloth.objects.get(product__id=id)
         except Cloth.DoesNotExist:
             return Response({"error": "Cloth not found"}, status=status.HTTP_404_NOT_FOUND)
 
@@ -53,7 +53,7 @@ class JewelleryListView(APIView):
 class JewelleryDetailView(APIView):
     def get(self, request, id):
         try:
-            jewellery = Jewellery.objects.get(id=id)
+            jewellery = Jewellery.objects.get(product__id=id)
         except Jewellery.DoesNotExist:
             return Response({"error": "Jewellery not found"}, status=status.HTTP_404_NOT_FOUND)
 

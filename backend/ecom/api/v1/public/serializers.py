@@ -5,7 +5,8 @@ from product.models import Product, Cloth, Jewellery
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'image', 'category']
+        fields = '__all__'  # includes all fields from the model
+        read_only_fields = ['slug'] 
 
 # Serializer for Cloth (including sizes)
 class ClothSerializer(serializers.ModelSerializer):
@@ -13,7 +14,7 @@ class ClothSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Cloth
-        fields = ['id', 'product', 'sizes', 'colors']
+        fields = '__all__'
 
 # Serializer for Jewellery (including material)
 class JewellerySerializer(serializers.ModelSerializer):
@@ -21,4 +22,4 @@ class JewellerySerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Jewellery
-        fields = ['id', 'product', 'material']
+        fields = '__all__'

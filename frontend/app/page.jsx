@@ -145,7 +145,7 @@
 
 
 
-import Home from "@/app/product/page"
+import Home from "@/app/products/page"
 
 function page() {
   return (
